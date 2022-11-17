@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Vehicle, VehicleFilter } from "./data/vehicles/contracts";
-import { VehicleApi } from "./data/vehicles/api";
-import { Filter } from "./components/Filter";
-import { Table } from "./components/Table";
+import React, {useState, useEffect} from "react";
+import {Vehicle, VehicleFilter} from "./data/vehicles/contracts";
+import {VehicleApi} from "./data/vehicles/api";
+import {Filter} from "./components/Filter";
+import {Table} from "./components/Table";
 
 const initialFilter: VehicleFilter = {
     title: "",
@@ -19,8 +19,8 @@ export default function App() {
 
     return (
         <>
-            <Filter />
-            <Table vehicles={vehicles} />
+            <Filter/>
+            <Table vehicles={vehicles}/>
         </>
     );
 }
