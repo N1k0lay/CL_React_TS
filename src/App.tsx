@@ -17,9 +17,13 @@ export default function App() {
         setVehicles(data);
     }, []);
 
+    const handleVehicles = (filterVehicles:Vehicle[]) => {
+        setVehicles(filterVehicles);
+    }
+
     return (
         <>
-            <Filter/>
+            <Filter setFilteredVehicles={handleVehicles}/>
             <Table vehicles={vehicles}/>
         </>
     );
