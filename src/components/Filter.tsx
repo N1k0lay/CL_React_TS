@@ -5,7 +5,7 @@ import {vehicleTypes, vehicleTypeTitles} from "../data/vehicles/contracts";
 export const Filter: React.FC<{ setFilteredVehicles: any }> = ({setFilteredVehicles}) => {
 
     const [search, setSearch] = useState<string>('');
-    const [select, setSelect] = useState<number>();
+    const [select, setSelect] = useState<number>(-1);
 
     let vehicleTypesOptions = [];
     for (let key of vehicleTypes) {
@@ -15,9 +15,12 @@ export const Filter: React.FC<{ setFilteredVehicles: any }> = ({setFilteredVehic
     const handleFilterVehicles = (newVehicles: any) => {
         setFilteredVehicles(newVehicles);
     }
+
     useEffect(() => {
-        let filteredVehicles = VehicleApi.search({type: select === -1 ? null : Number(select), title: search});
-        handleFilterVehicles(filteredVehicles)
+        console.log(search);
+        let filteredVehicles = VehicleApi.search({type: select === -1 ? null : Number(select), title: search ? String(search) : ''});
+        console.log(filteredVehicles);
+        filteredVehicles ? handleFilterVehicles(filteredVehicles) : '';
     }, [search, select])
 
     return (
